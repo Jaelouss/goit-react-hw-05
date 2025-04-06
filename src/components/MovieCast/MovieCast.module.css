@@ -1,0 +1,28 @@
+.list {
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+.item {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+  padding: 10px;
+  border: 1px solid gray;
+  border-radius: 5px;
+  width: 170px;
+}
+.text {
+  white-space: wrap;
+  text-align: center;
+  font-weight: bold;
+}
+.span {
+  font-size: 14px;
+}
+.photo {
+  border-radius: 5px;
+}

@@ -1,0 +1,134 @@
+.section {
+  margin: 16px;
+  padding: 16px;
+  background: #1c1c1c;
+  color: #f2f2f2;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  word-break: break-word; /* ⬅️ глобально — переноси */
+}
+
+.image {
+  width: 100%;
+  max-width: 250px;
+  height: auto;
+  margin-bottom: 16px;
+  border-radius: 8px;
+  margin: 0 auto;
+}
+
+.title {
+  font-size: 24px;
+  text-align: center;
+  margin-bottom: 10px;
+  overflow-wrap: break-word; /* ⬅️ для переносів */
+  word-wrap: break-word;
+}
+
+.text {
+  margin-bottom: 10px;
+  font-size: 16px;
+  text-align: center;
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+
+.textSpan {
+  display: inline-block;
+  padding-inline: 5px;
+  margin-right: 4px;
+  color: #ddd;
+  word-break: break-word;
+}
+
+.homepage {
+  color: #00bfff;
+  text-decoration: none;
+  word-break: break-all; /* ⬅️ критично для довгих URL */
+}
+
+.link {
+  text-decoration: none;
+  color: inherit;
+  font-size: 20px;
+  font-weight: bold;
+  padding: 10px 3rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #1c1c1c;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  word-break: break-word;
+  text-align: center;
+}
+
+.active {
+  background-color: #af444442;
+  transform: scale(1.02);
+  transition: transform 0.2s ease, background-color 0.3s ease;
+}
+
+.wrapper {
+  display: flex;
+  flex-wrap: wrap; /* ⬅️ важливо для маленьких екранів */
+  justify-content: start;
+  align-items: center;
+  gap: 10px;
+  margin-block: 10px;
+}
+
+/* MEDIA QUERIES */
+@media (width < 484px) {
+  .link {
+    padding: 10px 1.5rem;
+    font-size: 16px;
+  }
+
+  .text {
+    font-size: 14px;
+  }
+
+  .title {
+    font-size: 20px;
+  }
+}
+
+@media (width > 768px) {
+  .section {
+    align-items: flex-start;
+    max-width: 768px;
+    margin: 24px auto;
+  }
+
+  .image {
+    float: left;
+    margin: 0;
+    margin-right: 20px;
+    margin-bottom: 0;
+  }
+
+  .title,
+  .text {
+    text-align: left;
+  }
+
+  .title {
+    font-size: 28px;
+  }
+}
+
+@media (width > 1200px) {
+  .section {
+    max-width: 1200px;
+    padding: 24px 32px;
+  }
+
+  .title {
+    font-size: 32px;
+  }
+
+  .text {
+    font-size: 18px;
+  }
+}

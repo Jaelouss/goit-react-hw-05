@@ -1,0 +1,43 @@
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin-block: 20px;
+}
+.pageInfo {
+  font-size: 1.2rem;
+  color: #555;
+  font-weight: bold;
+  user-select: none;
+}
+.button {
+  padding: 10px 20px;
+  font-size: 1rem;
+  font-weight: bold;
+  color: #fff;
+  background-color: #2522cfcb;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+
+  &:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
+  }
+  &:focus {
+    outline: 2px solid #0056b3;
+    outline-offset: 2px;
+    transform: scale(1.05);
+  }
+  &:active {
+    background-color: #004085;
+    transform: scale(0.95);
+  }
+  &:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+    transform: none;
+  }
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
