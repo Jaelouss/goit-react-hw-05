@@ -7,7 +7,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  word-break: break-word; /* ⬅️ глобально — переноси */
+  word-break: break-word;
 }
 
 .image {
@@ -23,7 +23,7 @@
   font-size: 24px;
   text-align: center;
   margin-bottom: 10px;
-  overflow-wrap: break-word; /* ⬅️ для переносів */
+  overflow-wrap: break-word;
   word-wrap: break-word;
 }
 
@@ -46,7 +46,7 @@
 .homepage {
   color: #00bfff;
   text-decoration: none;
-  word-break: break-all; /* ⬅️ критично для довгих URL */
+  word-break: break-all;
 }
 
 .link {
@@ -71,14 +71,32 @@
 
 .wrapper {
   display: flex;
-  flex-wrap: wrap; /* ⬅️ важливо для маленьких екранів */
+  flex-wrap: wrap;
   justify-content: start;
   align-items: center;
   gap: 10px;
   margin-block: 10px;
 }
+.back {
+  padding: 10px 20px;
+  font-size: 1rem;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+}
 
-/* MEDIA QUERIES */
+.back:hover {
+  background-color: #0056b3;
+}
+
+.back:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
 @media (width < 484px) {
   .link {
     padding: 10px 1.5rem;
