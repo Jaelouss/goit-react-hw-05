@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import {
   Link,
   NavLink,
@@ -16,7 +16,7 @@ const MovieDetailsPage = () => {
   const { movieId } = useParams();
   const { movies, loading, error } = useMovieId(movieId);
   const location = useLocation();
-  const backLink = location.state ?? '/movies';
+  const backLink = useRef(location.state ?? '/movies');
 
   const {
     poster_path,
@@ -31,6 +31,7 @@ const MovieDetailsPage = () => {
     runtime,
     tagline,
   } = movies;
+  console.log('movies:', movies);
 
   const imageUrl = poster_path
     ? `https://image.tmdb.org/t/p/w500/${poster_path}`
@@ -44,7 +45,7 @@ const MovieDetailsPage = () => {
     <section className={s.section}>
       {movies && (
         <div className={s.container}>
-          <Link className={s.back} to={backLink}>
+          <Link className={s.back} to={backLink.current}>
             Go Back
           </Link>
           <h2 className={s.title}>{title}</h2>

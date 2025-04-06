@@ -1,15 +1,12 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import MovieList from '../../components/MovieList/MovieList';
 import Pagination from '../../components/Pagination/Pagination';
 import { useMovieTrending } from '../../hooks/useMovie';
 import Loader from '../../components/Loader/Loader';
 import Message from '../../components/Message/Message';
 import s from './HomePage.module.css';
-import { useLocation } from 'react-router-dom';
 
 const HomePage = () => {
-  const location = useLocation();
-
   const {
     movies,
     loading,
@@ -26,7 +23,7 @@ const HomePage = () => {
       {loading && <Loader />}
       {error && <Message type='error' message={error} />}
 
-      {movies.length > 0 && <MovieList location={location} movies={movies} />}
+      {movies && <MovieList movies={movies} />}
 
       {totalPages > 0 && (
         <Pagination

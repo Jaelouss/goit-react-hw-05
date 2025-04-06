@@ -1,9 +1,11 @@
 import React, { useEffect } from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useLocation } from 'react-router-dom';
 import s from './MovieList.module.css';
 import poster from '../../images/movie-poster-placeholder.svg';
 
-const MovieList = ({ movies, location }) => {
+const MovieList = ({ movies }) => {
+  const location = useLocation();
+
   useEffect(() => {
     if (movies.length > 0) {
       window.scrollTo({

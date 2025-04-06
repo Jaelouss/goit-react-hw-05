@@ -5,10 +5,9 @@ import Message from '../../components/Message/Message';
 import s from './MoviesPage.module.css';
 import MovieList from '../../components/MovieList/MovieList';
 import Pagination from '../../components/Pagination/Pagination';
-import { useLocation, useSearchParams } from 'react-router-dom';
+import { useSearchParams } from 'react-router-dom';
 
 const MoviesPage = () => {
-  const location = useLocation();
   const [searchParams, setSearchParams] = useSearchParams();
 
   const initialQuery = searchParams.get('query') || '';
@@ -108,11 +107,9 @@ const MoviesPage = () => {
         />
       )}
 
-      {movies.length > 0 && submittedQuery && (
-        <MovieList location={location} movies={movies} />
-      )}
+      {movies && submittedQuery && <MovieList movies={movies} />}
 
-      {movies.length > 0 && submittedQuery && (
+      {movies.length !== 0 && submittedQuery && (
         <Pagination
           totalPages={totalPages}
           currentPage={currentPage}
