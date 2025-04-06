@@ -77,15 +77,18 @@ const MoviesPage = () => {
 
   return (
     <section className={s.section}>
-      <form onSubmit={handleSubmit}>
+      <form className={s.form} onSubmit={handleSubmit}>
         <input
           name='query'
           type='text'
           placeholder='Search movies by title'
           value={value}
           onChange={handleChange}
+          className={s.input}
         />
-        <button type='submit'>Search</button>
+        <button className={s.button} type='submit'>
+          Search
+        </button>
       </form>
 
       {!value.trim() && !submittedQuery && (
