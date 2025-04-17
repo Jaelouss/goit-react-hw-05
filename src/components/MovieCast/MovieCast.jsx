@@ -16,7 +16,7 @@ const MovieCast = () => {
   return (
     <div>
       <h2>Cast</h2>
-      {loading && <Loader />}
+      
       {error && <Message type='error' message={error} />}
       {!loading && !error && (!cast || cast.length === 0) && (
         <Message type='info' message='There is no information about actors.' />

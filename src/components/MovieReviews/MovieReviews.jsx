@@ -39,7 +39,7 @@ const MovieReviews = () => {
   return (
     <div>
       <h2>Reviews</h2>
-      {loading && <Loader />}
+      
       {error && <Message type='error' message={error} />}
       {!loading && !error && (!reviews || reviews.length === 0) && (
         <Message type='info' message='There are no feedback on this movie.' />

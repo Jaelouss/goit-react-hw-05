@@ -20,7 +20,7 @@ const HomePage = () => {
   return (
     <section className={s.section}>
       <h1 className={s.title}>Trending Movies</h1>
-      {loading && <Loader />}
+      
       {error && <Message type='error' message={error} />}
 
       {movies && <MovieList movies={movies} />}

@@ -1,17 +1,17 @@
-import React, { useEffect, useState } from 'react';
-import { useMovieQuery } from '../../hooks/useMovie';
-import Loader from '../../components/Loader/Loader';
-import Message from '../../components/Message/Message';
-import s from './MoviesPage.module.css';
-import MovieList from '../../components/MovieList/MovieList';
-import Pagination from '../../components/Pagination/Pagination';
-import { useSearchParams } from 'react-router-dom';
+import React, { useEffect, useState } from "react";
+import { useMovieQuery } from "../../hooks/useMovie";
+import Loader from "../../components/Loader/Loader";
+import Message from "../../components/Message/Message";
+import s from "./MoviesPage.module.css";
+import MovieList from "../../components/MovieList/MovieList";
+import Pagination from "../../components/Pagination/Pagination";
+import { useSearchParams } from "react-router-dom";
 
 const MoviesPage = () => {
   const [searchParams, setSearchParams] = useSearchParams();
 
-  const initialQuery = searchParams.get('query') || '';
-  const initialPage = parseInt(searchParams.get('page'), 10) || 1;
+  const initialQuery = searchParams.get("query") || "";
+  const initialPage = parseInt(searchParams.get("page"), 10) || 1;
 
   const [value, setValue] = useState(initialQuery);
   const [submittedQuery, setSubmittedQuery] = useState(initialQuery);
@@ -31,11 +31,11 @@ const MoviesPage = () => {
     const updatedParams = new URLSearchParams();
 
     if (query) {
-      updatedParams.set('query', query);
+      updatedParams.set("query", query);
     }
 
     if (page && page !== 1) {
-      updatedParams.set('page', page.toString());
+      updatedParams.set("page", page.toString());
     }
 
     setSearchParams(updatedParams);
@@ -58,7 +58,7 @@ const MoviesPage = () => {
     const query = event.target.query.value.trim();
 
     if (!query) {
-      setSubmittedQuery('');
+      setSubmittedQuery("");
       setPageNow(1);
 
       setSearchParams(new URLSearchParams());
@@ -78,32 +78,31 @@ const MoviesPage = () => {
     <section className={s.section}>
       <form className={s.form} onSubmit={handleSubmit}>
         <input
-          name='query'
-          type='text'
-          placeholder='Search movies by title'
+          name="query"
+          type="text"
+          placeholder="Search movies by title"
           value={value}
           onChange={handleChange}
           className={s.input}
         />
-        <button className={s.button} type='submit'>
+        <button className={s.button} type="submit">
           Search
         </button>
       </form>
 
       {!value.trim() && !submittedQuery && (
         <Message
-          type='info'
-          message='Enter the search query to search for movies'
+          type="info"
+          message="Enter the search query to search for movies"
         />
       )}
 
-      {loading && <Loader />}
-      {error && <Message type='error' message={error} />}
+      {error && <Message type="error" message={error} />}
 
       {movies.length < 1 && !loading && submittedQuery && (
         <Message
-          type='warning'
-          message='Nothing found, try clarifying the request'
+          type="warning"
+          message="Nothing found, try clarifying the request"
         />
       )}
 
